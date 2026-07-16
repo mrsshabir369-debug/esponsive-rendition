@@ -9,8 +9,92 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VulnerabilityScanRouteImport } from './routes/vulnerability-scan'
+import { Route as ToolsHubRouteImport } from './routes/tools-hub'
+import { Route as SystemMonitorRouteImport } from './routes/system-monitor'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as RedTeamRouteImport } from './routes/red-team'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as NetworkScannerRouteImport } from './routes/network-scanner'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
+import { Route as FileManagerRouteImport } from './routes/file-manager'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as ChatRouteImport } from './routes/chat'
+import { Route as AnalyticsRouteImport } from './routes/analytics'
 import { Route as IndexRouteImport } from './routes/index'
 
+const VulnerabilityScanRoute = VulnerabilityScanRouteImport.update({
+  id: '/vulnerability-scan',
+  path: '/vulnerability-scan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsHubRoute = ToolsHubRouteImport.update({
+  id: '/tools-hub',
+  path: '/tools-hub',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SystemMonitorRoute = SystemMonitorRouteImport.update({
+  id: '/system-monitor',
+  path: '/system-monitor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RedTeamRoute = RedTeamRouteImport.update({
+  id: '/red-team',
+  path: '/red-team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NetworkScannerRoute = NetworkScannerRouteImport.update({
+  id: '/network-scanner',
+  path: '/network-scanner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FileManagerRoute = FileManagerRouteImport.update({
+  id: '/file-manager',
+  path: '/file-manager',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChatRoute = ChatRouteImport.update({
+  id: '/chat',
+  path: '/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnalyticsRoute = AnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +103,228 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/chat': typeof ChatRoute
+  '/dashboard': typeof DashboardRoute
+  '/file-manager': typeof FileManagerRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/login': typeof LoginRoute
+  '/network-scanner': typeof NetworkScannerRoute
+  '/profile': typeof ProfileRoute
+  '/red-team': typeof RedTeamRoute
+  '/register': typeof RegisterRoute
+  '/settings': typeof SettingsRoute
+  '/system-monitor': typeof SystemMonitorRoute
+  '/tools-hub': typeof ToolsHubRoute
+  '/vulnerability-scan': typeof VulnerabilityScanRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/chat': typeof ChatRoute
+  '/dashboard': typeof DashboardRoute
+  '/file-manager': typeof FileManagerRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/login': typeof LoginRoute
+  '/network-scanner': typeof NetworkScannerRoute
+  '/profile': typeof ProfileRoute
+  '/red-team': typeof RedTeamRoute
+  '/register': typeof RegisterRoute
+  '/settings': typeof SettingsRoute
+  '/system-monitor': typeof SystemMonitorRoute
+  '/tools-hub': typeof ToolsHubRoute
+  '/vulnerability-scan': typeof VulnerabilityScanRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/chat': typeof ChatRoute
+  '/dashboard': typeof DashboardRoute
+  '/file-manager': typeof FileManagerRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/login': typeof LoginRoute
+  '/network-scanner': typeof NetworkScannerRoute
+  '/profile': typeof ProfileRoute
+  '/red-team': typeof RedTeamRoute
+  '/register': typeof RegisterRoute
+  '/settings': typeof SettingsRoute
+  '/system-monitor': typeof SystemMonitorRoute
+  '/tools-hub': typeof ToolsHubRoute
+  '/vulnerability-scan': typeof VulnerabilityScanRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/analytics'
+    | '/chat'
+    | '/dashboard'
+    | '/file-manager'
+    | '/forgot-password'
+    | '/login'
+    | '/network-scanner'
+    | '/profile'
+    | '/red-team'
+    | '/register'
+    | '/settings'
+    | '/system-monitor'
+    | '/tools-hub'
+    | '/vulnerability-scan'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/analytics'
+    | '/chat'
+    | '/dashboard'
+    | '/file-manager'
+    | '/forgot-password'
+    | '/login'
+    | '/network-scanner'
+    | '/profile'
+    | '/red-team'
+    | '/register'
+    | '/settings'
+    | '/system-monitor'
+    | '/tools-hub'
+    | '/vulnerability-scan'
+  id:
+    | '__root__'
+    | '/'
+    | '/analytics'
+    | '/chat'
+    | '/dashboard'
+    | '/file-manager'
+    | '/forgot-password'
+    | '/login'
+    | '/network-scanner'
+    | '/profile'
+    | '/red-team'
+    | '/register'
+    | '/settings'
+    | '/system-monitor'
+    | '/tools-hub'
+    | '/vulnerability-scan'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AnalyticsRoute: typeof AnalyticsRoute
+  ChatRoute: typeof ChatRoute
+  DashboardRoute: typeof DashboardRoute
+  FileManagerRoute: typeof FileManagerRoute
+  ForgotPasswordRoute: typeof ForgotPasswordRoute
+  LoginRoute: typeof LoginRoute
+  NetworkScannerRoute: typeof NetworkScannerRoute
+  ProfileRoute: typeof ProfileRoute
+  RedTeamRoute: typeof RedTeamRoute
+  RegisterRoute: typeof RegisterRoute
+  SettingsRoute: typeof SettingsRoute
+  SystemMonitorRoute: typeof SystemMonitorRoute
+  ToolsHubRoute: typeof ToolsHubRoute
+  VulnerabilityScanRoute: typeof VulnerabilityScanRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/vulnerability-scan': {
+      id: '/vulnerability-scan'
+      path: '/vulnerability-scan'
+      fullPath: '/vulnerability-scan'
+      preLoaderRoute: typeof VulnerabilityScanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools-hub': {
+      id: '/tools-hub'
+      path: '/tools-hub'
+      fullPath: '/tools-hub'
+      preLoaderRoute: typeof ToolsHubRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/system-monitor': {
+      id: '/system-monitor'
+      path: '/system-monitor'
+      fullPath: '/system-monitor'
+      preLoaderRoute: typeof SystemMonitorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/red-team': {
+      id: '/red-team'
+      path: '/red-team'
+      fullPath: '/red-team'
+      preLoaderRoute: typeof RedTeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/network-scanner': {
+      id: '/network-scanner'
+      path: '/network-scanner'
+      fullPath: '/network-scanner'
+      preLoaderRoute: typeof NetworkScannerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/file-manager': {
+      id: '/file-manager'
+      path: '/file-manager'
+      fullPath: '/file-manager'
+      preLoaderRoute: typeof FileManagerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chat': {
+      id: '/chat'
+      path: '/chat'
+      fullPath: '/chat'
+      preLoaderRoute: typeof ChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analytics': {
+      id: '/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof AnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +337,21 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AnalyticsRoute: AnalyticsRoute,
+  ChatRoute: ChatRoute,
+  DashboardRoute: DashboardRoute,
+  FileManagerRoute: FileManagerRoute,
+  ForgotPasswordRoute: ForgotPasswordRoute,
+  LoginRoute: LoginRoute,
+  NetworkScannerRoute: NetworkScannerRoute,
+  ProfileRoute: ProfileRoute,
+  RedTeamRoute: RedTeamRoute,
+  RegisterRoute: RegisterRoute,
+  SettingsRoute: SettingsRoute,
+  SystemMonitorRoute: SystemMonitorRoute,
+  ToolsHubRoute: ToolsHubRoute,
+  VulnerabilityScanRoute: VulnerabilityScanRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
