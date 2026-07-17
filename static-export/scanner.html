@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scanner — APEX AGENT</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><div class="logo-mark">⚡</div>APEX</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="chat.html">AI Chat</a>
+      <a href="scanner.html">Scanner</a>
+      <a href="tools.html">Tools</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container" style="padding:30px 20px;max-width:900px">
+  <h1 style="font-size:32px">🎯 <span class="gradient-text">Network Scanner</span></h1>
+  <p style="color:var(--muted);margin:8px 0 20px">Nmap · Masscan · SQLMap · Nikto · Gobuster — pick a weapon.</p>
+
+  <div class="glass card">
+    <form id="scanForm">
+      <div class="form-row">
+        <select id="tool">
+          <option value="nmap">Nmap — port scan</option>
+          <option value="sqlmap">SQLMap — SQL injection</option>
+          <option value="nikto">Nikto — web scanner</option>
+          <option value="gobuster">Gobuster — dir bruteforce</option>
+          <option value="hydra">Hydra — login bruteforce</option>
+          <option value="masscan">Masscan — fast port scan</option>
+        </select>
+        <input id="target" placeholder="target.com or 192.168.1.1" required>
+      </div>
+      <div class="form-row">
+        <input id="options" placeholder="Extra flags (optional) — e.g. -sV -A -p1-1000">
+        <button type="submit" class="btn btn-primary">🚀 Launch Scan</button>
+      </div>
+    </form>
+  </div>
+
+  <h3 style="margin:24px 0 10px">📟 Output</h3>
+  <div class="output-box" id="output">Ready. Configure your scan above and hit Launch.</div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+<script>
+const out = document.getElementById('output');
+document.getElementById('scanForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const tool = document.getElementById('tool').value;
+  const target = document.getElementById('target').value.trim();
+  const options = document.getElementById('options').value.trim();
+  out.textContent = `$ ${tool} ${options} ${target}\n\nInitiating scan...\n`;
+  const r = await runTool(tool, target, { flags: options });
+  out.textContent += (r.output || r.error || JSON.stringify(r,null,2));
+});
+</script>
+</body>
+</html>

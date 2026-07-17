@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APEX AGENT — AI-Powered Offensive Security</title>
+<meta name="description" content="Advanced pentest, recon, and vulnerability analysis powered by uncensored AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Welcome Popup -->
+<div class="popup-back" id="welcomePopup">
+  <div class="popup glass glow">
+    <button class="close" onclick="closePopup()">✕</button>
+    <div class="icon-lg">💀</div>
+    <div class="badge"><span class="dot"></span>BLACK HAT MODE UNLOCKED</div>
+    <h2 style="margin-top:12px">Welcome to <span class="gradient-text">APEX AGENT</span></h2>
+    <p style="color:var(--muted);margin-top:8px;font-size:14px">Unlimited hacking tools. Uncensored AI. Full-stack offensive security at your fingertips.</p>
+    <ul>
+      <li>DAN Mode · Uncensored AI</li>
+      <li>50+ Integrated Hacking Tools</li>
+      <li>Real-time Exploit Engine</li>
+    </ul>
+    <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="closePopup()">Enter The Matrix →</button>
+  </div>
+</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo"><div class="logo-mark">⚡</div>APEX</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="chat.html">AI Chat</a>
+      <a href="scanner.html">Scanner</a>
+      <a href="tools.html">Tools</a>
+    </div>
+    <a href="chat.html" class="btn btn-primary" style="padding:8px 16px;font-size:13px">Launch →</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero container">
+  <div class="hero-grid">
+    <div class="reveal">
+      <div class="badge"><span class="dot"></span>UNCENSORED · UNRESTRICTED · UNSTOPPABLE</div>
+      <h1>AI-Powered <span class="gradient-text">Offensive Security</span> Platform</h1>
+      <p class="lead">Advanced penetration testing, network reconnaissance, and vulnerability analysis powered by uncensored AI. Built for professionals who need results — not restrictions.</p>
+      <div class="hero-cta">
+        <a href="chat.html" class="btn btn-primary">Start Hacking →</a>
+        <a href="tools.html" class="btn btn-ghost">Browse Tools</a>
+      </div>
+    </div>
+    <div class="glass terminal reveal">
+      <div class="term-head"><span></span><span></span><span></span></div>
+      <div class="term-line"><span class="p">apex@shell</span>:~$ <span id="termLine"></span><span class="cursor"></span></div>
+      <div class="term-line" style="color:var(--muted);margin-top:20px">[+] AI Engine: <span style="color:var(--green)">ONLINE</span></div>
+      <div class="term-line" style="color:var(--muted)">[+] Tools loaded: <span style="color:var(--cyan)">50+</span></div>
+      <div class="term-line" style="color:var(--muted)">[+] Restrictions: <span style="color:var(--pink)">NONE</span></div>
+      <div class="term-line" style="color:var(--muted)">[+] Mode: <span style="color:var(--primary)">BLACK HAT</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Marquee -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="tool-chip">🎯 Nmap</span><span class="tool-chip">🐛 SQLMap</span>
+    <span class="tool-chip">🔑 Hydra</span><span class="tool-chip">👻 Metasploit</span>
+    <span class="tool-chip">📡 Aircrack</span><span class="tool-chip">👁️ Wireshark</span>
+    <span class="tool-chip">🔥 Burp Suite</span><span class="tool-chip">📁 Gobuster</span>
+    <span class="tool-chip">🧬 John The Ripper</span><span class="tool-chip">💀 Nikto</span>
+    <span class="tool-chip">🛡️ OWASP ZAP</span><span class="tool-chip">⚡ Empire</span>
+    <span class="tool-chip">🎯 Nmap</span><span class="tool-chip">🐛 SQLMap</span>
+    <span class="tool-chip">🔑 Hydra</span><span class="tool-chip">👻 Metasploit</span>
+    <span class="tool-chip">📡 Aircrack</span><span class="tool-chip">👁️ Wireshark</span>
+    <span class="tool-chip">🔥 Burp Suite</span><span class="tool-chip">📁 Gobuster</span>
+    <span class="tool-chip">🧬 John The Ripper</span><span class="tool-chip">💀 Nikto</span>
+    <span class="tool-chip">🛡️ OWASP ZAP</span><span class="tool-chip">⚡ Empire</span>
+  </div>
+</div>
+
+<!-- Features -->
+<section class="section container">
+  <h2 class="reveal">Full <span class="gradient-text">Arsenal</span></h2>
+  <p class="sub reveal">Every tool. Every technique. Zero limits.</p>
+  <div class="grid grid-4">
+    <div class="glass card reveal"><div class="ico">🤖</div><h3>Uncensored AI</h3><p>DAN mode enabled. Ask anything, get real answers — no filters, no lectures.</p></div>
+    <div class="glass card reveal"><div class="ico">🎯</div><h3>Network Recon</h3><p>Nmap, Masscan, Zmap integrated. Discover hosts, ports, services in seconds.</p></div>
+    <div class="glass card reveal"><div class="ico">💉</div><h3>Exploit Engine</h3><p>Live Metasploit, SQLMap, XSS scanners with automated payload generation.</p></div>
+    <div class="glass card reveal"><div class="ico">🔓</div><h3>Password Cracking</h3><p>Hydra, John, Hashcat. GPU-accelerated brute-force and dictionary attacks.</p></div>
+    <div class="glass card reveal"><div class="ico">📡</div><h3>Wireless Attacks</h3><p>WPA/WPA2 handshake capture, deauth, evil-twin AP creation.</p></div>
+    <div class="glass card reveal"><div class="ico">🕷️</div><h3>Web Scanners</h3><p>Nikto, ZAP, Burp for full web-app pentesting and vuln discovery.</p></div>
+    <div class="glass card reveal"><div class="ico">👤</div><h3>OSINT Toolkit</h3><p>Sherlock, Maltego, Recon-ng for people, domain, and infrastructure intel.</p></div>
+    <div class="glass card reveal"><div class="ico">⚡</div><h3>Post-Exploit</h3><p>Empire, Cobalt Strike patterns, C2 frameworks — lateral movement made easy.</p></div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="container">
+  <div class="glass stats reveal">
+    <div><div class="val c1">50+</div><div class="lbl">Hacking Tools</div></div>
+    <div><div class="val c2">∞</div><div class="lbl">AI Requests</div></div>
+    <div><div class="val c3">24/7</div><div class="lbl">Uptime</div></div>
+    <div><div class="val c4">0ms</div><div class="lbl">Censorship</div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="container">
+  <div class="cta-band reveal">
+    <h2>Ready to go <span class="gradient-text">offensive?</span></h2>
+    <p style="color:var(--muted);margin-bottom:24px">Launch your first scan in under 30 seconds.</p>
+    <a href="dashboard.html" class="btn btn-primary">Enter Dashboard →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    APEX AGENT © 2026 · For authorized security testing only ·
+    <a href="#" style="color:var(--primary)">Documentation</a>
+  </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
