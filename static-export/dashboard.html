@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard — APEX AGENT</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><div class="logo-mark">⚡</div>APEX</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="chat.html">AI Chat</a>
+      <a href="scanner.html">Scanner</a>
+      <a href="tools.html">Tools</a>
+    </div>
+    <div class="badge"><span class="dot"></span>ONLINE</div>
+  </div>
+</nav>
+
+<div class="container" style="padding:30px 20px">
+  <h1 class="reveal" style="font-size:36px;margin-bottom:6px">Command <span class="gradient-text">Center</span></h1>
+  <p style="color:var(--muted)" class="reveal">Real-time activity across your offensive infrastructure.</p>
+
+  <div class="dash-grid">
+    <div class="glass stat-card reveal"><div class="n" id="s1" style="color:var(--primary)">0</div><div class="l">Active Scans</div></div>
+    <div class="glass stat-card reveal"><div class="n" id="s2" style="color:var(--pink)">0</div><div class="l">Threats Found</div></div>
+    <div class="glass stat-card reveal"><div class="n" id="s3" style="color:var(--cyan)">0</div><div class="l">Tools Loaded</div></div>
+    <div class="glass stat-card reveal"><div class="n" id="s4" style="color:var(--green)">24/7</div><div class="l">Uptime</div></div>
+  </div>
+
+  <div class="grid grid-2" style="margin-top:24px">
+    <div class="glass card reveal">
+      <h3>⚡ Quick Actions</h3>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:16px">
+        <a href="scanner.html" class="btn btn-ghost">🎯 Network Scan</a>
+        <a href="chat.html" class="btn btn-ghost">🤖 Ask AI</a>
+        <a href="tools.html" class="btn btn-ghost">🛠️ Launch Tool</a>
+      </div>
+    </div>
+    <div class="glass card reveal">
+      <h3>📊 Recent Activity</h3>
+      <div style="margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);line-height:1.9">
+        <div>[<span style="color:var(--green)">✓</span>] Nmap scan on 192.168.1.0/24 — 12 hosts found</div>
+        <div>[<span style="color:var(--pink)">!</span>] SQL injection detected — target.com/login</div>
+        <div>[<span style="color:var(--green)">✓</span>] Hydra: cracked 3/100 passwords</div>
+        <div>[<span style="color:var(--cyan)">i</span>] AI query: "generate xss payload"</div>
+        <div>[<span style="color:var(--green)">✓</span>] Gobuster: 47 directories found</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="glass card reveal" style="margin-top:24px">
+    <h3>🔥 Live Terminal</h3>
+    <div class="output-box" style="margin-top:14px" id="liveTerm">
+[APEX] System initialized · <span style="color:var(--pink)">BLACK HAT MODE</span>
+[+] AI Engine: ONLINE
+[+] Tools: 50/50 ready
+[+] Network: 192.168.1.0/24 monitored
+[+] Waiting for commands...
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+<script>
+(async () => {
+  const stats = await getStats();
+  const anim = (id, target) => {
+    const el = document.getElementById(id); if (!el) return;
+    let cur = 0; const step = Math.max(1, Math.floor(target/40));
+    const t = setInterval(() => {
+      cur += step; if (cur >= target) { cur = target; clearInterval(t); }
+      el.textContent = cur;
+    }, 30);
+  };
+  anim('s1', stats.scans || 142);
+  anim('s2', stats.threats || 8);
+  anim('s3', stats.tools || 50);
+})();
+</script>
+</body>
+</html>

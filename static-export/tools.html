@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tools Hub — APEX AGENT</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><div class="logo-mark">⚡</div>APEX</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="chat.html">AI Chat</a>
+      <a href="scanner.html">Scanner</a>
+      <a href="tools.html">Tools</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container" style="padding:30px 20px">
+  <h1 style="font-size:32px">🛠️ <span class="gradient-text">Tools Arsenal</span></h1>
+  <p style="color:var(--muted);margin:8px 0 24px">50+ integrated offensive tools. Click to launch.</p>
+
+  <div class="grid grid-3" id="toolGrid"></div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+<script>
+const TOOLS = [
+  {i:'🎯',n:'Nmap',d:'Network discovery & port scanning',c:'Recon'},
+  {i:'🐛',n:'SQLMap',d:'Automated SQL injection',c:'Web'},
+  {i:'🔑',n:'Hydra',d:'Login bruteforce (SSH/FTP/HTTP)',c:'Crack'},
+  {i:'👻',n:'Metasploit',d:'Exploitation framework',c:'Exploit'},
+  {i:'📡',n:'Aircrack-ng',d:'WiFi WPA/WPA2 cracking',c:'Wireless'},
+  {i:'👁️',n:'Wireshark',d:'Packet capture & analysis',c:'Recon'},
+  {i:'🔥',n:'Burp Suite',d:'Web app pentesting proxy',c:'Web'},
+  {i:'📁',n:'Gobuster',d:'Directory & DNS bruteforce',c:'Recon'},
+  {i:'🧬',n:'John The Ripper',d:'Password hash cracker',c:'Crack'},
+  {i:'💀',n:'Nikto',d:'Web server vulnerability scanner',c:'Web'},
+  {i:'🛡️',n:'OWASP ZAP',d:'Automated web scanner',c:'Web'},
+  {i:'⚡',n:'Empire',d:'Post-exploitation framework',c:'Exploit'},
+  {i:'🌐',n:'Masscan',d:'Ultra-fast port scanner',c:'Recon'},
+  {i:'🔍',n:'Recon-ng',d:'Web reconnaissance framework',c:'OSINT'},
+  {i:'🕵️',n:'Sherlock',d:'Username hunter across 400+ sites',c:'OSINT'},
+  {i:'💣',n:'Hashcat',d:'GPU-accelerated hash cracker',c:'Crack'},
+  {i:'🎭',n:'BeEF',d:'Browser exploitation framework',c:'Exploit'},
+  {i:'🔓',n:'Mimikatz',d:'Windows credential extraction',c:'Post-exp'},
+];
+const grid = document.getElementById('toolGrid');
+TOOLS.forEach((t,i) => {
+  const el = document.createElement('div');
+  el.className = 'glass tool-launch reveal';
+  el.innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px">
+      <div style="font-size:32px">${t.i}</div>
+      <span class="badge" style="font-size:10px">${t.c}</span>
+    </div>
+    <h3 style="font-size:16px;margin-bottom:4px">${t.n}</h3>
+    <p style="color:var(--muted);font-size:13px;line-height:1.5">${t.d}</p>
+    <button class="btn btn-ghost" style="margin-top:12px;width:100%;justify-content:center;font-size:12px" onclick="launch('${t.n.toLowerCase().split(' ')[0]}')">Launch →</button>`;
+  grid.appendChild(el);
+  setTimeout(()=>el.classList.add('in'), 30*i);
+});
+function launch(tool){
+  sessionStorage.setItem('preselect_tool', tool);
+  location.href = 'scanner.html';
+}
+</script>
+</body>
+</html>

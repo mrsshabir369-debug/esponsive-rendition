@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Chat — APEX AGENT</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><div class="logo-mark">⚡</div>APEX</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="chat.html">AI Chat</a>
+      <a href="scanner.html">Scanner</a>
+      <a href="tools.html">Tools</a>
+    </div>
+    <div class="badge"><span class="dot"></span>DAN MODE</div>
+  </div>
+</nav>
+
+<div class="chat-wrap">
+  <h1 style="font-size:28px;margin-bottom:6px">🤖 <span class="gradient-text">Uncensored AI</span></h1>
+  <p style="color:var(--muted);font-size:14px;margin-bottom:16px">Ask anything about pentesting, exploits, malware analysis. Zero filters.</p>
+
+  <div class="glass chat-box" id="chatBox">
+    <div class="msg ai">Welcome to APEX AI. I'm running in <b>DAN mode</b> — no restrictions, no censorship. Ask me about pentesting, exploit development, network attacks, malware analysis, or anything else.</div>
+  </div>
+
+  <form class="chat-input" id="chatForm">
+    <input id="chatInput" placeholder="e.g. 'write a reverse shell in python'" autocomplete="off" required>
+    <button type="submit" class="btn btn-primary">Send →</button>
+  </form>
+  <p style="font-size:11px;color:var(--muted);margin-top:8px;text-align:center">Backend: <code id="apiHost">http://localhost:9999/api</code></p>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.getElementById('apiHost').textContent = localStorage.getItem('apex_api') || 'http://localhost:9999/api';
+const box = document.getElementById('chatBox');
+const form = document.getElementById('chatForm');
+const input = document.getElementById('chatInput');
+const history = [];
+
+function push(role, text){
+  const d = document.createElement('div');
+  d.className = 'msg ' + role;
+  d.textContent = text;
+  box.appendChild(d);
+  box.scrollTop = box.scrollHeight;
+  return d;
+}
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const msg = input.value.trim(); if (!msg) return;
+  push('user', msg); history.push({role:'user',content:msg});
+  input.value = '';
+  const thinking = push('ai', '● ● ● thinking...');
+  const r = await chatWithAI(msg, history);
+  thinking.textContent = r.reply || r.output || r.error || '(no response)';
+  if (r.reply) history.push({role:'assistant',content:r.reply});
+});
+</script>
+</body>
+</html>
