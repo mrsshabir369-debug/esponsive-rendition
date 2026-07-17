@@ -13,11 +13,10 @@ export default defineConfig({
     server: { entry: "server" },
   },
   vite: {
+    base: "./",
     build: {
       outDir: "dist",
       assetsDir: "assets",
-      // Static hosting ke liye
-      base: "./",
     },
   },
 });
